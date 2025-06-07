@@ -56,7 +56,6 @@ This guide covers commonly used shell commands and sample shell scripting interv
 | `tee`                  | Split output to file and screen                                           |
 | `logger`               | Write messages to syslog                                                  |
 | `getent`               | Query system databases (passwd, hosts, services)                          |
-+----------------------------------------------------------------------------------------------------+
 
 # Shell Scripting Interview Questions and Answers
 
