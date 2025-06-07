@@ -43,48 +43,66 @@ Be honest about your daily usage. Here are basic yet widely used commands:
 
 ---
 
-## 📄 List All Running Processes
+````markdown
+# Common Shell Commands and Useful Bash Scripts
 
-Use the `ps` command:
+This README provides a collection of useful shell commands, simple bash scripts, and best practices for writing and explaining shell scripts — especially handy for interviews or everyday usage.
+
+---
+
+## Table of Contents
+
+1. [Listing Process IDs](#listing-process-ids)  
+2. [Fetching and Filtering Remote Logs](#fetching-and-filtering-remote-logs)  
+3. [Script: Numbers Divisible by 3 and 5 but Not 15](#script-numbers-divisible-by-3-and-5-but-not-15)  
+4. [Best Practices During Interview](#best-practices-during-interview)  
+5. [Common Follow-up Questions](#common-follow-up-questions)  
+
+---
+
+## Listing Process IDs
+
+**Question:** How do I list all process IDs (PIDs) on a Unix/Linux system?
+
+**Answer:**  
+You can use the `ps` command along with `awk` to extract the PID column from the full process listing:
 
 ```bash
-#!/bin/bash
-ps -ef
-🔍 Filter Only Process IDs
-Use awk to extract the second column (PID):
-
-bash
-Copy
-Edit
 ps -ef | awk '{print $2}'
-🌐 Fetch and Filter Remote Logs
-Example: Print only error logs from a remote log file
-bash
-Copy
-Edit
+````
+
+* `ps -ef` lists all processes with detailed info.
+* `awk '{print $2}'` extracts the second column (which is the PID).
+
+---
+
+## Fetching and Filtering Remote Logs
+
+**Question:** How can I download a remote log file and filter it for error lines?
+
+**Answer:**
+You can use `curl` to fetch the remote file and pipe it into `grep` to filter:
+
+```bash
 curl <REMOTE_LOG_URL> | grep "ERROR"
-curl: Downloads the remote file.
+```
 
-grep: Filters for lines containing "ERROR".
+* `curl <REMOTE_LOG_URL>` downloads the log file from the URL.
+* `grep "ERROR"` filters and prints only lines containing the word "ERROR".
+* The pipe `|` connects the output of `curl` to `grep`.
 
-|: Pipes the output of curl into grep.
+**Note:** Replace `<REMOTE_LOG_URL>` with your actual log file URL.
 
-Replace <REMOTE_LOG_URL> with your actual log URL.
+---
 
-🔢 Script: Numbers Divisible by 3 and 5 but Not 15
-Problem:
-Print numbers between 1–100 that are:
+## Script: Numbers Divisible by 3 and 5 but Not 15
 
-Divisible by 3
+**Question:** How to print numbers from 1 to 100 that are divisible by 3 and 5, but not by 15?
 
-Divisible by 5
+**Answer:**
+Here's a bash script that does exactly that:
 
-Not divisible by 15
-
-Shell Script:
-bash
-Copy
-Edit
+```bash
 #!/bin/bash
 
 for ((i=1; i<=100; i++)); do
@@ -92,20 +110,71 @@ for ((i=1; i<=100; i++)); do
     echo $i
   fi
 done
-💡 Best Practices During Interview
-Explain your thought process before jumping into code.
+```
 
-Ask for range/input assumptions before writing scripts.
+**Explanation:**
 
-Use clear variable names and comments in your code.
+* Loop through numbers 1 to 100.
+* Check if a number is divisible by 3 (`i % 3 == 0`) and 5 (`i % 5 == 0`) **and** not divisible by 15 (`i % 15 != 0`).
+* Print the number if conditions are met.
 
-Mention why you chose specific commands (grep, awk, pipe, etc.).
+---
 
-Be prepared for follow-up questions like:
+## Best Practices During Interview
 
-How do you make scripts executable?
+* **Explain your thought process** clearly before jumping into code.
+* **Ask clarifying questions** about input range or assumptions.
+* Use **clear variable names** and add **comments** for readability.
+* Mention why you choose specific commands like `grep`, `awk`, or pipes (`|`).
+* Be ready to discuss **alternatives or optimizations**.
 
-How do you schedule this with cron?
+---
 
-How to send output to a file or email?
+## Common Follow-up Questions
 
+**Q1: How do you make a script executable?**
+
+```bash
+chmod +x script.sh
+```
+
+**Q2: How do you schedule this script to run periodically with `cron`?**
+
+* Open cron jobs editor with:
+
+```bash
+crontab -e
+```
+
+* Add a line like below to run every day at midnight:
+
+```bash
+0 0 * * * /path/to/script.sh
+```
+
+**Q3: How to save script output to a file or send it via email?**
+
+* Save output to file:
+
+```bash
+./script.sh > output.log
+```
+
+* Send output via email (using `mail` command):
+
+```bash
+./script.sh | mail -s "Script Output" user@example.com
+```
+
+---
+
+Feel free to customize and extend these scripts for your own use!
+
+---
+
+*Happy scripting!*
+
+```
+
+Just copy and paste this directly into your README.md file. Let me know if you want me to generate it as a downloadable file!
+```
