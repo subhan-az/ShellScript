@@ -1,0 +1,20 @@
+total 308K
+drwxr-xr-x 25 root root 4.0K Jun  7 06:35 ..
+-rw-r--r--  1 root root 222K Jun  7 06:36 testlog
+-rwxr-xr-x  1 root root  338 Jun  7 06:36 secondscript.sh
+-rwxr-xr-x  1 root root  249 Jun  7 06:36 firstscript.sh
+-rw-r--r--  1 root root  36K Jun  7 06:36 README.md
+-rwxr-xr-x  1 root root  309 Jun  7 14:20 thirdscript.sh
+-rwxr--r--  1 root root  208 Jun  7 14:36 fourthscript.sh
+-rwxr-xr-x  1 root root  316 Jun  7 14:43 scriptfive.sh
+-rwxr-xr-x  1 root root  237 Jun  7 14:55 sixscript.sh
+drwxr-xr-x  8 root root 4.0K Jun  7 15:00 .git
+-rwxrwxrwx  1 root root  271 Jun  7 15:57 connectivity.sh
+-rwxr-xr-x  1 root root  178 Jun  8 06:20 rootuser.sh
+-rwxr-xr-x  1 root root  151 Jun  8 06:39 dice.sh
+drwxr-xr-x  3 root root 4.0K Jun  8 06:50 .
+-rw-r--r--  1 root root    0 Jun  8 06:50 allfiles.txt
+Sun Jun  8 06:51:03 UTC 2025
+/shellscript
+HMSagar
+HMSagar.
